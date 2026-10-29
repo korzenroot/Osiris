@@ -205,7 +205,8 @@ struct LinuxClientPatternFinder {
 
     [[nodiscard]] csgo::UiComponentInventoryPOD** uiComponentInventory() const noexcept
     {
-        return finder("4C 89 3D ? ? ? ? 4C 89 FF EB 9D 0F 1F 44 00 00"_pat).add(3).abs().as<csgo::UiComponentInventoryPOD**>();
+        static csgo::UiComponentInventoryPOD* stub{};
+        return &stub;
     }
 
     [[nodiscard]] csgo::SetItemSessionPropertyValue setItemSessionPropertyValue() const noexcept

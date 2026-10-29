@@ -215,7 +215,8 @@ struct WindowsClientPatternFinder {
 
     [[nodiscard]] csgo::UiComponentInventoryPOD** uiComponentInventory() const noexcept
     {
-        return finder("C6 44 24 ? ? 83 3D"_pat).add(7).deref().as<csgo::UiComponentInventoryPOD**>();
+        static csgo::UiComponentInventoryPOD* stub{};
+        return &stub;
     }
 
     [[nodiscard]] csgo::SetItemSessionPropertyValue setItemSessionPropertyValue() const noexcept
